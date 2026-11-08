@@ -6,3 +6,13 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- JSP: comentarios con <%-- --%> (gcc) y sangría de 4 espacios como en el proyecto
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "jsp",
+  callback = function()
+    vim.bo.commentstring = "<%-- %s --%>"
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+  end,
+})

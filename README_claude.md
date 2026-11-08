@@ -39,10 +39,10 @@
 │   ├── lazy.lua              # bootstrap de lazy.nvim (starter, sin cambios)
 │   ├── options.lua           # relativenumber, clipboard del sistema, colorcolumn 120, sin swap...
 │   ├── keymaps.lua           # atajos estilo IDE (Cmd+S, Cmd+P, Cmd+B, F5/F9/F10/F11, jk)
-│   └── autocmds.lua          # vacío (starter)
+│   └── autocmds.lua          # JSP: comentarios <%-- --%> y sangría de 4
 ├── lua/plugins/
 │   ├── ide.lua               # catppuccin, toggleterm, diffview, grug-far, herramientas Mason extra
-│   └── java-web.lua          # Spring Boot LS, ajustes jdtls, lemminx, html/css/emmet, Bootstrap
+│   └── java-web.lua          # Spring Boot LS, ajustes jdtls, lemminx, html/css/emmet, Bootstrap (también en .jsp)
 ├── snippets/
 │   ├── java.json             # entity, repository, service, restcontroller, mvccontroller, onetomany...
 │   └── html.json             # thpage, thform, thfield, thtable, bsnavbar (Thymeleaf + Bootstrap 5)

@@ -1,4 +1,8 @@
--- Java + Spring Boot + Hibernate (JPA) + Thymeleaf/Bootstrap
+-- Java + Spring Boot + Hibernate (JPA) + Thymeleaf/JSP + Bootstrap
+
+-- JSP: usar el parser de HTML de Treesitter (resaltado y clases de Bootstrap en class="...")
+vim.treesitter.language.register("html", "jsp")
+
 return {
   -- Servidores y herramientas que Mason instala
   {
@@ -25,10 +29,10 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        html = { filetypes = { "html" } },
+        html = { filetypes = { "html", "jsp" } },
         cssls = {},
         lemminx = {},
-        emmet_language_server = { filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact" } },
+        emmet_language_server = { filetypes = { "html", "jsp", "css", "scss", "javascriptreact", "typescriptreact" } },
       },
     },
   },
@@ -103,13 +107,21 @@ return {
   -- Clases de Bootstrap en el autocompletado de HTML / plantillas Thymeleaf
   {
     "Jezda1337/nvim-html-css",
-    ft = { "html" },
+    ft = { "html", "jsp" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
-      enable_on = { "html" },
+      enable_on = { "html", "jsp" },
       style_sheets = {
         "https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css",
       },
+    },
+  },
+
+  -- Snippets de HTML/Bootstrap (thpage, bsnavbar...) también en archivos JSP
+  {
+    "saghen/blink.cmp",
+    opts = {
+      sources = { providers = { snippets = { opts = { extended_filetypes = { jsp = { "html" } } } } } },
     },
   },
 }
